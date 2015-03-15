@@ -11,6 +11,15 @@ import EtudiantPerson = require('../domain/etudperson');
 import Unite = require('../domain/unite');
 import Groupe = require('../domain/groupe');
 import Matiere = require('../domain/matiere');
+import Etudiant = require('../domain/etudiant');
+import Enseignant = require('../domain/enseignant');
+import Annee = require('../domain/annee');
+import Semestre = require('../domain/semestre');
+import AttachedDoc = require('../domain/attacheddoc');
+import ProfAffectation = require('../domain/profaffectation');
+import EtudAffectation = require('../domain/etudaffectation');
+import GroupeEvent = require('../domain/groupeevent');
+import EtudEvent = require('../domain/etudevent');
 //
 class ItemDataManager implements InfoData.IDataManager {
   manager: InfoData.IHttpManager;
@@ -36,6 +45,24 @@ class ItemDataManager implements InfoData.IDataManager {
       return new Groupe(oMap);
     } else if (t == 'matiere') {
       return new Matiere(oMap);
+    } else if (t == 'etudiant') {
+      return new Etudiant(oMap);
+    } else if (t == 'enseignant') {
+      return new Enseignant(oMap);
+    } else if (t == 'annee') {
+      return new Annee(oMap);
+    } else if (t == 'semestre') {
+      return new Semestre(oMap);
+    } else if (t == 'attacheddoc') {
+      return new AttachedDoc(oMap);
+    } else if (t == 'profaffectation') {
+      return new ProfAffectation(oMap);
+    } else if (t == 'etudaffectation') {
+      return new EtudAffectation(oMap);
+    } else if (t == 'groupeevent') {
+      return new GroupeEvent(oMap);
+    } else if (t == 'etudevent') {
+      return new EtudEvent(oMap);
     }
     return null;
   }// create_item
@@ -148,7 +175,7 @@ class ItemDataManager implements InfoData.IDataManager {
       return vRet;
     });
   }// get_by_id
-  
+
   public insert_one_item(item: InfoData.IBaseItem): Q.IPromise<any> {
     return this._perform_post(item);
   }

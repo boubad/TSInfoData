@@ -159,31 +159,34 @@ declare module InfoData {
     has_enseignantid: boolean;
   }// interface IProfAffectation
   //
-  interface IGroupeEvent extends IDescriptionItem {
+  interface IBaseEvent extends IDescriptionItem {
+    departementid?:any;
+    groupeid?:any;
+    uniteid?:any;
     semestreid?: any;
     matiereid?: any;
-    profaffectationid: any;
-    enseignantid?: any;
+    documentids?: any[];
+    status?:string;
+    anneeid?:any;
+    personid?:any;
     date: Date;
     genre: string;
+  }// interface IBaseEvent
+  //
+  interface IGroupeEvent extends IBaseEvent {
+    profaffectationid: any;
+    enseignantid?: any;
     name: string;
     location?: string;
     startTime?: Date;
     endTime?: Date;
     coefficient?: number;
-    documentids?: any[];
   }// interface IGroupeEvent
-  interface IEtudEvent extends IDescriptionItem {
+  interface IEtudEvent extends IBaseEvent {
     etudaffectationid: any;
     groupeeventid: any;
-    genre: string;
     note?: number;
-    semestreid?: any;
-    matiereid?: any;
     etudiantid?: any;
-    groupeid?: any;
-    date: Date;
-    documentids?: any[];
   }// interface IGroupeEvent
   //
   interface IHttpManager {

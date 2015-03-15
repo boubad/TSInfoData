@@ -63,5 +63,71 @@ class BaseItem implements InfoData.IBaseItem {
     this.to_fetch_map(oMap);
     return JSON.stringify(oMap);
   }// toString
+  //
+  public _array_contains(cont: any[], val: any): boolean {
+    if ((cont != undefined) && (cont != null) && (val != undefined) &&
+      (val != null)) {
+      var s: string = val.toString().trim().toLowerCase();
+      if (s.length > 0) {
+        var n: number = cont.length;
+        for (var i = 0; i < n; ++i) {
+          var x = cont[i];
+          if ((x != undefined) && (x != null)) {
+            var ss: string = x.toString().trim().toLowerCase();
+            if (ss == s) {
+              return true;
+            }
+          }
+        }// i
+      }// s
+    }
+    return false;
+  }// _array_contains
+  public _array_add(cont: any[], val: any): void {
+    if ((cont != undefined) && (cont != null) && (val != undefined) &&
+      (val != null)) {
+      var s: string = val.toString().trim().toLowerCase();
+      if (s.length > 0) {
+        var bFound: boolean = false;
+        var n: number = cont.length;
+        for (var i = 0; i < n; ++i) {
+          var x = cont[i];
+          if ((x != undefined) && (x != null)) {
+            var ss: string = x.toString().trim().toLowerCase();
+            if (ss == s) {
+              bFound = true;
+              break;
+            }
+          }
+        }// i
+        if (!bFound) {
+          cont.push(val);
+        }
+      }// val
+    }
+  }// _array_add
+  public _array_remove(cont: any[], val: any): void {
+    if ((cont != undefined) && (cont != null) && (val != undefined) &&
+      (val != null)) {
+      var s: string = val.toString().trim().toLowerCase();
+      if (s.length > 0) {
+        var index: number = -1;
+        var n: number = cont.length;
+        for (var i = 0; i < n; ++i) {
+          var x = cont[i];
+          if ((x != undefined) && (x != null)) {
+            var ss: string = x.toString().trim().toLowerCase();
+            if (ss == s) {
+              index = i;
+              break;
+            }
+          }
+        }// i
+        if (index >= 0) {
+          cont.slice(index, 1);
+        }
+      }// val
+    }
+  }// _array_add
 }// class BaseItem
 export = BaseItem;
