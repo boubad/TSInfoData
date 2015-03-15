@@ -1,0 +1,12 @@
+{
+  "typescript": {
+    "target": "ES5",
+    "module": "commonjs",
+    "noImplicitAny": true,
+    "sources": [
+      "src/**/*.ts",
+      "test/**/*.ts"
+    ],
+    "typescriptPath": "C:\\Users\\Boubacar\\AppData\\Roaming\\npm\\node_modules\\typescript\\bin"
+  }
+}

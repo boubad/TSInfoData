@@ -1,0 +1,24 @@
+{
+  "name": "bnodeinfo",
+  "version": "1.0.0",
+  "description": "bnodeinfo",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "Boubacar Diarra",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "*",
+    "cors": "*",
+    "express": "*",
+    "mongodb": "*",
+    "mongoskin": "*",
+    "morgan": "*",
+    "q": "^1.2.0"
+  },
+  "devDependencies": {
+    "chai": "*",
+    "mocha": "*"
+  }
+}
