@@ -25,6 +25,16 @@ declare module InfoData {
     semestreid?:any;
     matiereid?:any;
     groupeid?:any;
+    username?: string;
+    password?: string;
+    firstname?: string;
+    lastname?: string;
+    email?: string;
+    phone?: string;
+    roles?: string[];
+    fullname?:string;
+    reset_password?:()=>void;
+    change_password?:(s:string) =>void;
     //
     has_uniteid?: boolean;
     //
@@ -58,10 +68,10 @@ declare module InfoData {
     has_remarks?: boolean;
   }// interface IAttachedDoc
   export interface IPerson extends IDescriptionItem {
-    username: string;
-    password: string;
-    firstname: string;
-    lastname: string;
+    username?: string;
+    password?: string;
+    firstname?: string;
+    lastname?: string;
     email?: string;
     phone?: string;
     roles?: string[];

@@ -91,7 +91,7 @@ class ViewModelBase {
       this.departement = null;
     } else {
       var self = this;
-      var model = new Departement();
+      var model:InfoData.IBaseItem = new Departement();
       model.id = id;
       this.dataService.get_one_item(model).then((d:Departement)=>{
         self.departement = d;
