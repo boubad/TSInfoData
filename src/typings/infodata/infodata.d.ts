@@ -3,11 +3,32 @@
 //
 declare module InfoData {
   //
-  interface IBaseItem {
+  export interface IBaseItem {
     id: any;
     rev: any;
     type: string;
     collection_name: string;
+    //
+    remarks?: string;
+    avatarid?: any;
+    sigle?: string;
+    name?: string;
+    startDate?: Date;
+    endDate?: Date;
+    uniteid?: any;
+    coefficient?: number;
+    ecs?: number;
+    genre?: string;
+    mat_module?: string;
+    departementid?:any;
+    anneeid?:any;
+    semestreid?:any;
+    matiereid?:any;
+    groupeid?:any;
+    //
+    has_uniteid?: boolean;
+    //
+    has_sigle?: boolean;
     //
     has_id: boolean;
     has_rev: boolean;
@@ -16,27 +37,27 @@ declare module InfoData {
     to_insert_map: (oMap: any) => void;
     to_fetch_map: (oMap: any) => void;
   }// interface IBaseItem
-  interface IDescriptionItem extends IBaseItem {
-    remarks: string;
-    avatarid: any;
+  export interface IDescriptionItem extends IBaseItem {
+    remarks?: string;
+    avatarid?: any;
     //
-    has_remarks: boolean;
-    has_avatarid: boolean;
+    has_remarks?: boolean;
+    has_avatarid?: boolean;
   }// interface IDescriptionItem
-  interface IAttachedDoc extends IBaseItem {
-    mimetype: string;
-    genre: string;
-    name: string;
-    data: number[];
-    remarks: string;
+  export interface IAttachedDoc extends IBaseItem {
+    mimetype?: string;
+    genre?: string;
+    name?: string;
+    data?: number[];
+    remarks?: string;
     //
-    has_mimetype: boolean;
-    has_genre: boolean;
-    has_name: boolean;
-    has_data: boolean;
-    has_remarks: boolean;
+    has_mimetype?: boolean;
+    has_genre?: boolean;
+    has_name?: boolean;
+    has_data?: boolean;
+    has_remarks?: boolean;
   }// interface IAttachedDoc
-  interface IPerson extends IDescriptionItem {
+  export interface IPerson extends IDescriptionItem {
     username: string;
     password: string;
     firstname: string;
@@ -66,7 +87,7 @@ declare module InfoData {
     is_etud?: boolean;
     is_reader?: boolean;
   }// interface IPerson
-  interface IEtudiantPerson extends IPerson {
+  export interface IEtudiantPerson extends IPerson {
     dossier?: string;
     sexe?: string;
     birthDate?: Date;
@@ -77,60 +98,60 @@ declare module InfoData {
     mentionBac?: string;
     etudesSuperieures?: string;
   }// interface IEtudiantPerson
-  interface IDepartement extends IDescriptionItem {
+  export interface IDepartement extends IDescriptionItem {
   }// interface IDepartement
-  interface IDepartementChild extends IDescriptionItem {
-    departementid: any;
-    has_departementid: boolean;
+  export interface IDepartementChild extends IDescriptionItem {
+    departementid?: any;
+    has_departementid?: boolean;
   }// interface IDepartementChild
-  interface ISigleNameItem extends IDepartementChild {
-    sigle: string;
-    name: string;
+  export interface ISigleNameItem extends IDepartementChild {
+    sigle?: string;
+    name?: string;
     //
-    has_sigle: boolean;
-    has_name: boolean;
+    has_sigle?: boolean;
+    has_name?: boolean;
   }// interface ISigleNameItem
-  interface IIntervalItem extends ISigleNameItem {
+  export interface IIntervalItem extends ISigleNameItem {
     startDate?: Date;
     endDate?: Date;
   }// interface ISigleNameItem
-  interface IAnnee extends IIntervalItem {
+  export interface IAnnee extends IIntervalItem {
   }
-  interface IGroupe extends ISigleNameItem {
+  export interface IGroupe extends ISigleNameItem {
 
   }// interface IGroupe
-  interface IUnite extends ISigleNameItem {
+  export interface IUnite extends ISigleNameItem {
 
   }// interface IUnite
-  interface ISemestre extends IIntervalItem {
+  export interface ISemestre extends IIntervalItem {
     anneeid: any;
     has_anneeid: boolean;
   }// interface ISemestre
-  interface IMatiere extends ISigleNameItem {
-    uniteid: any;
+  export interface IMatiere extends ISigleNameItem {
+    uniteid?: any;
     coefficient?: number;
     ecs?: number;
     genre?: string;
     mat_module?: string;
     //
-    has_uniteid: boolean;
+    has_uniteid?: boolean;
   }// interface IMatiere
   //
-  interface IDepartementPerson extends IDescriptionItem {
+  export interface IDepartementPerson extends IDescriptionItem {
     personid: any;
     departementid: any;
     has_departementid: boolean;
     has_personid: boolean;
   }// interface IDepartementPerson
   //
-  interface IEtudiant extends IDepartementPerson {
+  export interface IEtudiant extends IDepartementPerson {
   }// interface IEtudiant
-  interface IEnseignant extends IDepartementPerson {
+  export interface IEnseignant extends IDepartementPerson {
   }// interface IEnseignant
-  interface IOperator extends IDepartementPerson {
+  export interface IOperator extends IDepartementPerson {
   }// interface IOperator
   //
-  interface IAffectation extends IDescriptionItem {
+  export interface IAffectation extends IDescriptionItem {
     semestreid: any;
     groupeid: any;
     departementid?:any;
@@ -145,11 +166,11 @@ declare module InfoData {
     has_startDate: boolean;
     has_endDate: boolean;
   } // interface IAffectation
-  interface IEtudAffectation extends IAffectation {
+  export interface IEtudAffectation extends IAffectation {
     etudiantid: any;
     has_etudiantid: boolean;
   }// interface IEtudAffectation
-  interface IProfAffectation extends IAffectation {
+  export interface IProfAffectation extends IAffectation {
     uniteid?: any;
     matiereid: any;
     enseignantid: any;
@@ -159,7 +180,7 @@ declare module InfoData {
     has_enseignantid: boolean;
   }// interface IProfAffectation
   //
-  interface IBaseEvent extends IDescriptionItem {
+  export interface IBaseEvent extends IDescriptionItem {
     departementid?:any;
     groupeid?:any;
     uniteid?:any;
@@ -173,7 +194,7 @@ declare module InfoData {
     genre: string;
   }// interface IBaseEvent
   //
-  interface IGroupeEvent extends IBaseEvent {
+  export interface IGroupeEvent extends IBaseEvent {
     profaffectationid: any;
     enseignantid?: any;
     name: string;
@@ -182,21 +203,22 @@ declare module InfoData {
     endTime?: Date;
     coefficient?: number;
   }// interface IGroupeEvent
-  interface IEtudEvent extends IBaseEvent {
+  export interface IEtudEvent extends IBaseEvent {
     etudaffectationid: any;
     groupeeventid: any;
     note?: number;
     etudiantid?: any;
   }// interface IGroupeEvent
   //
-  interface IHttpManager {
+  export interface IHttpManager {
     perform_get: (url: string) => Q.IPromise<any>;
     perform_post: (url: string, data: any) => Q.IPromise<any>;
     perform_put: (url: string, data: any) => Q.IPromise<any>;
     perform_remove: (url: string) => Q.IPromise<any>;
   }// interface IHttpManager
   //
-  interface IDataManager {
+  export interface IDataManager {
+    create_item : (oMap: any) => InfoData.IBaseItem
     get_items_count: (item: IBaseItem) => Q.IPromise<number>;
     get_items: (item: IBaseItem, skip?: number, limit?: number) => Q.IPromise<IBaseItem[]>;
     get_one_item: (item: IBaseItem) => Q.IPromise<IBaseItem>;
@@ -207,3 +229,4 @@ declare module InfoData {
     remove_one_item: (item: IBaseItem) => Q.IPromise<any>;
   }// interface IDataManager
 }// module InfoData
+export = InfoData;

@@ -1,5 +1,5 @@
 //semestre.ts
-/// <reference path="./intervalitem.ts" />
+import InfoData = require('../../typings/infodata/infodata.d');
 //
 import IntervalItem = require('./intervalitem');
 //

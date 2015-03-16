@@ -1,6 +1,6 @@
 // itemdatamanager.ts
 //
-/// <reference path="../../typings/infodata/infodata.d.ts" />
+import InfoData = require('../../typings/infodata/infodata.d');
 //
 import Q = require('q');
 //
@@ -28,7 +28,7 @@ class ItemDataManager implements InfoData.IDataManager {
     this.manager = man;
   }// constructor
   //
-  private _create_item(oMap: any): InfoData.IBaseItem {
+  public create_item(oMap: any): InfoData.IBaseItem {
     if (oMap.type == undefined) {
       return null;
     }
@@ -148,7 +148,7 @@ class ItemDataManager implements InfoData.IDataManager {
       var vRet: InfoData.IBaseItem[] = [];
       var n = dd.length;
       for (var i = 0; i < n; ++i) {
-        var x = self._create_item(dd[i]);
+        var x = self.create_item(dd[i]);
         if (x != null) {
           vRet.push(x);
         }
@@ -170,7 +170,7 @@ class ItemDataManager implements InfoData.IDataManager {
     return this._perform_get(item.collection_name, oMap, false, 0, 1).then((dd) => {
       var vRet: InfoData.IBaseItem = null;
       if (dd.length > 0) {
-        vRet = self._create_item(dd[0]);
+        vRet = self.create_item(dd[0]);
       }
       return vRet;
     });

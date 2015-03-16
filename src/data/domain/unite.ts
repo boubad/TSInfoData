@@ -1,5 +1,5 @@
 //unite.ts
-/// <reference path="./siglenameitem.ts" />
+import InfoData = require('../../typings/infodata/infodata.d');
 //
 import SigleNameItem = require('./siglenameitem');
 //

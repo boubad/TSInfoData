@@ -1,6 +1,6 @@
 //groupeevent.ts
 //
-/// <reference path="./baseevent.ts" />
+import InfoData = require('../../typings/infodata/infodata.d');
 //
 import BaseEvent = require('./baseevent');
 //

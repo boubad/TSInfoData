@@ -1,5 +1,5 @@
 //// person.ts
-/// <reference path="./person.ts" />
+import InfoData = require('../../typings/infodata/infodata.d');
 //
 import Person = require('./person');
 //

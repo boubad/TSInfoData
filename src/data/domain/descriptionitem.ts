@@ -1,6 +1,6 @@
 // descriptionitem.ts
-/// <reference path="./baseitem.ts" />
 //
+import InfoData = require('../../typings/infodata/infodata.d');
 import BaseItem = require('./baseitem');
 //
 class DescriptionItem extends BaseItem  implements InfoData.IDescriptionItem {

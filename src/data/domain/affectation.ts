@@ -1,5 +1,5 @@
 //affectation.ts
-/// <reference path="./descriptionitem.ts" />
+import InfoData = require('../../typings/infodata/infodata.d');
 //
 import DescriptionItem = require('./descriptionitem');
 //
